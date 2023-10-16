@@ -55,13 +55,14 @@ public class RemoveElement {
         int nums[] = {0,1,2,2,3,0,4,2};
         int val = 2;
 
-        System.out.println(removeElement(nums, val));
+        int nums1[] = {3,2,2,3};
+        int val1 = 3;
 
+        System.out.println(removeElement(nums, val));
+        System.out.println(removeElement(nums1, val1));
     }
 
     public static int removeElement(int[] nums, int val) {
-
-        int k = 0;
 
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == val && i != nums.length - 1) {
@@ -72,12 +73,17 @@ public class RemoveElement {
                         nums[j] = temp;
                     }
                 }
-                 k+=1;
             }
+        }
+
+        int k = 0;
+        for (int q : nums) {
+            if (q == val)
+                k++;
         }
 
         System.out.println(Arrays.toString(nums));
 
-        return k;
+        return nums.length - k;
     }
 }
